@@ -1,8 +1,10 @@
 <script>
   import UserRoleList from './UserRoleList.svelte'
+  import { fade } from 'svelte/transition'
 
   const user = {
-    role: 'Software Development Engineer'
+    role: 'Software Development Engineer',
+    showRole: false
   }
 </script>
 
@@ -32,16 +34,25 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
   }
 </style>
 
-<div class="user">
+<div
+  class="user"
+  on:click={() => {
+    user.showRole = !user.showRole
+  }}>
   <div class="user-logo" />
   <div class="user-role">{user.role}</div>
 </div>
 
-<UserRoleList rotation="right" />
-<UserRoleList rotation="left" />
+{#if user.showRole}
+  <div transition:fade>
+    <UserRoleList rotation="right" />
+    <UserRoleList rotation="left" />
 
-<UserRoleList rotation="right" />
-<UserRoleList rotation="left" />
+    <UserRoleList rotation="right" />
+    <UserRoleList rotation="left" />
+  </div>
+{/if}
