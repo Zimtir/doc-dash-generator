@@ -13,6 +13,10 @@ Application for https://leadersofdigital.ru/ by Case №1 (Generation of SPA for
 - [Project](https://www.figma.com/files/project/9907635/Document-Dashboard-Generator)
 - [Role page](https://www.figma.com/file/4al6zHYBfM8aMPjwuj0iZ7/Role-page)
 
+## Fonts
+
+- "Fira Sans", sans-serif
+
 ## Palette
 
 - #85C8FD - Light Sky Blue - No accent blocks
