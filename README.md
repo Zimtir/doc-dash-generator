@@ -15,7 +15,11 @@ Application for https://leadersofdigital.ru/ by Case №1 (Generation of SPA for
 
 ## Fonts
 
-- "Fira Sans", sans-serif
+- Embed
+
+  ```HTML
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  ```
 
 ## Palette
 
