@@ -29,4 +29,4 @@ Application for https://leadersofdigital.ru/ by Case №1 (Generation of SPA for
 - #C9CFD2 - Light Gray - Block background
 - #4E5F68 - Cadet - Text
 
-- ![Palette picture](assets/img/palette.png)
+  ![Palette picture](assets/img/palette.png)
