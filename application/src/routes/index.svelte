@@ -1,4 +1,6 @@
 <script>
+  import User from '../components/User.svelte'
+
   console.log('Started:', new Date())
 </script>
 
@@ -42,15 +44,4 @@
   <title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-  <img alt="Borat" src="assets/img/great-success.png" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
+<User />
