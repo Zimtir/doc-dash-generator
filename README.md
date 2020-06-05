@@ -5,6 +5,10 @@ Application for https://leadersofdigital.ru/ by Case №1 (Generation of SPA for
 # Requirements
 
 - [Figma](https://figma.com)
+- [Azure Cognitive Systems](https://azure.microsoft.com/en-us/try/cognitive-services/#lang)
+- [Guide: Microsoft Azure Cognitive Systems](https://docs.microsoft.com/ru-ru/azure/cognitive-services/text-analytics/quickstarts/nodejs)
+- [Azure account](https://azure.microsoft.com)
+- [Text analyticts resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)
 
 # UI/UX Design
 
