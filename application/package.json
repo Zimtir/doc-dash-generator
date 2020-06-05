@@ -12,6 +12,7 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "@azure/ai-text-analytics": "^1.0.0-preview.4",
     "node-crud-kit": "^1.4.0",
     "sirv": "^0.4.2",
     "ts-node-dev": "^1.0.0-pre.44",
