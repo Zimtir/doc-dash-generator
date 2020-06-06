@@ -1,11 +1,14 @@
 <script>
   import UserRoleList from './UserRoleList.svelte'
   import { fade } from 'svelte/transition'
+  import { text } from '../tools/store.ts'
 
   const user = {
     role: 'Software Development Engineer',
     showRole: true
   }
+
+  $: console.log($text)
 </script>
 
 <style>
