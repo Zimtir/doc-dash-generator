@@ -4,6 +4,7 @@ import { initModules, initServer } from './tools/server.tool'
 const listEndpoints = require('express-list-endpoints')
 
 import dotenv from 'dotenv'
+import { keyPhraseExtraction } from './tools/text.tool'
 dotenv.config()
 
 export default class ServerInterop {
@@ -16,7 +17,6 @@ export default class ServerInterop {
 
   server: any
   app: any
-  router: any
 
   constructor() {
     this.initApp()
@@ -25,11 +25,16 @@ export default class ServerInterop {
 
   private initApp = () => {
     this.app = express()
+    const router = express.Router()
+    this.app.use('/', router)
 
-    // !!! REMOVE BEFORE DEPLOY TO PRODUCTION
-    this.app.use('/api/all', (req: any, res: any) =>
+    router.get('/api/all', (req: any, res: any) =>
       res.send(listEndpoints(this.app))
     )
+
+    router.get('/api/getKeywords', async (req: any, res: any) => {
+      res.send(await keyPhraseExtraction(req.query.text))
+    })
 
     initModules(this.app)
   }

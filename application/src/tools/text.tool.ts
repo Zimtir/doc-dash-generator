@@ -1,24 +1,20 @@
-import {
-  TextAnalyticsClient,
-  AzureKeyCredential,
-} from '@azure/ai-text-analytics'
+import { TextAnalyticsClient } from '@azure/cognitiveservices-textanalytics'
+import { ApiKeyCredentials } from '@azure/ms-rest-js'
 
-const key = process.env.AZURE_API_KEY!
-const endpoint = process.env.AZURE_API_ENDPOINT!
+const creds = new ApiKeyCredentials({
+  inHeader: { 'Ocp-Apim-Subscription-Key': 'API_KEY_HERE' },
+})
 
-const textAnalyticsClient = new TextAnalyticsClient(
-  endpoint,
-  new AzureKeyCredential(key)
-)
+const textAnalyticsClient = new TextAnalyticsClient(creds, 'API_ENDPOINT_HERE')
 
-const keyPhraseExtraction = async (client: TextAnalyticsClient) => {
-  const keyPhrasesInput = ['My cat might need to see a veterinarian.']
-  const keyPhraseResult = await client.extractKeyPhrases(keyPhrasesInput)
+export const keyPhraseExtraction = async (input: string) => {
+  const keyPhrasesInput = {
+    documents: [{ language: 'ru', id: '1', text: input }],
+  }
 
-  keyPhraseResult.forEach((document) => {
-    console.log(`ID: ${document.id}`)
-    console.log(document)
-    // console.log(`\tDocument Key Phrases: ${document.keyPhrases}`)
+  const keyPhraseResult = await textAnalyticsClient.keyPhrases({
+    multiLanguageBatchInput: keyPhrasesInput,
   })
+
+  return keyPhraseResult
 }
-await keyPhraseExtraction(textAnalyticsClient)
