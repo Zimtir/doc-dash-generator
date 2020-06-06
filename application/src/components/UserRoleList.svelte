@@ -4,44 +4,55 @@
   import Sphere from './Sphere.svelte'
 
   export let rotation
+
+  let isVisible = true
 </script>
 
 <style>
   .user-role__container {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
     width: 100%;
   }
 
   .user-role__list {
     display: flex;
     flex-wrap: wrap;
-    width: 30%;
+    width: min-content;
   }
 </style>
 
 <div class="user-role__container">
 
   {#if rotation === 'left'}
-    <div class="user-role__list">
-      <UserRole />
-      <UserRole />
-    </div>
+    {#if isVisible}
+      <div class="user-role__list">
+        <UserRole />
+        <UserRole />
+      </div>
+    {/if}
 
-    <Sphere />
+    <Sphere
+      on:click={() => {
+        isVisible = !isVisible
+      }} />
 
-    <UserTextRole />
+    {#if isVisible}
+      <UserTextRole />
+    {/if}
   {:else}
-    <UserTextRole />
+    {#if isVisible}
+      <UserTextRole />
+    {/if}
 
     <Sphere />
 
-    <div class="user-role__list">
-      <UserRole />
-      <UserRole />
-    </div>
+    {#if isVisible}
+      <div class="user-role__list">
+        <UserRole />
+        <UserRole />
+      </div>
+    {/if}
   {/if}
 </div>

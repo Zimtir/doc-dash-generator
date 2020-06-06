@@ -1,5 +1,5 @@
 <script>
-
+  import { fade } from 'svelte/transition'
 </script>
 
 <style>
@@ -32,7 +32,7 @@
   }
 </style>
 
-<div class="user-role__container">
+<div transition:fade class="user-role__container">
   <div class="user-role__element user-role__left-part">TEXT 1</div>
   <div class="user-role__element user-role__right-part">TEXT 2</div>
 </div>

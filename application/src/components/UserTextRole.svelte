@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: min-content;
   }
 
   .text-role__element {

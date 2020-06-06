@@ -4,7 +4,7 @@
 
   const user = {
     role: 'Software Development Engineer',
-    showRole: false
+    showRole: true
   }
 </script>
 
@@ -34,6 +34,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
     cursor: pointer;
   }
 </style>
@@ -49,10 +50,10 @@
 
 {#if user.showRole}
   <div transition:fade>
-    <UserRoleList rotation="right" />
+    <UserRoleList rotation="left" />
     <UserRoleList rotation="left" />
 
-    <UserRoleList rotation="right" />
+    <UserRoleList rotation="left" />
     <UserRoleList rotation="left" />
   </div>
 {/if}
